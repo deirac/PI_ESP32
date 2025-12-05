@@ -19,5 +19,5 @@
 #define DEFAULT_SETPOINT 900
 
 // PI parámetros
-#define KP 0.1
-#define KI 0.02
+#define PI_KP 0.1f
+#define PI_KI 0.02f

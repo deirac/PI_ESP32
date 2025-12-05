@@ -19,7 +19,7 @@ void taskCore0(void *parameter)
         last_time = now;
 
         // Leer pulsos y convertir a RPM
-        motorData.rpm = encoder_get_rpm(dt);
+        motorData.rpm = encoder_get_rpm();
 
         // Puedes añadir filtros si quieres:
         // motorData.rpm = lowpass(motorData.rpm);
