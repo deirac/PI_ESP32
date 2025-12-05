@@ -32,6 +32,6 @@ void loop() {
         duty -= 0.001;
         if (duty <= 0.1) increasing = true;
     }
-    Serial.println(duty);
+    
     delay(10);
 }
