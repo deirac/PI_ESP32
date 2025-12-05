@@ -6,6 +6,17 @@ utilizando un **ESP32**, un **encoder**, un **driver PWM**, y un
 La arquitectura se encuentra organizada en módulos independientes y
 tareas distribuidas entre los dos núcleos del ESP32 para lograr un
 control eficiente, estable y escalable.
+__________________________________________________________________________
+# Tabla de Pines del Proyecto ESP32
+
+| Componente / Función | Pin ESP32 | Descripción |
+|----------------------|-----------|-------------|
+| Encoder (Canal B)    | GPIO 34   | Entrada digital para lectura del encoder |
+| PWM High-Side (IR2110) | GPIO 25 | Señal MCPWM0A hacia el driver IR2110 |
+| PWM Low-Side (IR2110)  | GPIO 26 | Señal MCPWM0B complementaria con deadtime |
+| Motor Driver          | PWM0A / PWM0B | Control de puente medio con IR2110 |
+| UART0 (USB Serial)    | GPIO 1 / 3 | RX/TX para consola serial |
+
 
 ------------------------------------------------------------------------
 
