@@ -17,6 +17,7 @@ __________________________________________________________________________
 | Motor Driver          | PWM0A / PWM0B | Control de puente medio con IR2110 |
 | UART0 (USB Serial)    | GPIO 1 / 3 | RX/TX para consola serial |
 
+![pinout ESP32](IMG/esp32-devkitc_v4_pinout_zl.jpg)
 
 ------------------------------------------------------------------------
 
