@@ -1,22 +1,19 @@
 #include <Arduino.h>
+#include "task_core0.h"
+#include "task_core1.h"
+#include "encoder.h"
+#include "pwm_driver.h"
+#include "types.h"
 
-// put function declarations here:
-int myFunction(int, int);
+void setup()
+{
+    Serial.begin(115200);
 
-void setup() {
-  Serial.begin(115200);
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
-  Serial.print("The result is: ");
-  Serial.println(result);
+    encoder_init();
+    pwm_init();
+
+    startTaskCore0();   // Core 0 → encoder
+    startTaskCore1();   // Core 1 → PI + PWM
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+void loop() {}
