@@ -9,7 +9,7 @@
 
 // Parámetros PWM
 #define PWM_FREQ 20000
-#define PWM_DEADTIME_NS 500
+#define PWM_DEADTIME_NS 100
 
 // Duty máximo/mínimo
 #define DUTY_MIN 0.50
