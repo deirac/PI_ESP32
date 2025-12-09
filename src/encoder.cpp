@@ -88,8 +88,7 @@ void IRAM_ATTR encoder_isr() {
 // ============================================
 // FUNCIONES PRINCIPALES DEL ENCODER
 // ============================================
-
-void encoder_init() {
+void encoder_init() { // Inicializa el encoder
     // Configurar pin con pull-up interno
     pinMode(ENCODER_PIN_B, INPUT_PULLUP);
     

@@ -6,7 +6,7 @@
 #include "types.h"
 
 // Variables globales
-extern volatile MotorData motorData;
+extern volatile MotorSystemState motorData;
 
 void taskCore1(void *parameter)
 {
@@ -22,10 +22,10 @@ void taskCore1(void *parameter)
         last_time = now;
 
         // Medición actual
-        float rpm_measured = motorData.rpm;
+        float rpm_measured = motorData.current_rpm;
 
         // Control PI
-        float duty = pi_compute(&pi, motorData.setpoint, rpm_measured, dt);
+        float duty = pi_compute(&pi, motorData.target_rpm, rpm_measured, dt);
 
         // Aplicar al PWM
         pwm_set_duty(duty);

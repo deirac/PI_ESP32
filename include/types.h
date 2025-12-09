@@ -38,9 +38,11 @@ typedef struct {
     // Parámetros del controlador
     float kp;                   // Ganancia proporcional
     float ki;                   // Ganancia integral
-    
+    // float kd;                   // Ganancia derivativa (opcional)
+
     // Estado interno
     float integral;             // Acumulador integral
+    // float derivative;           // Término derivativo (opcional)
     float last_error;           // Último error (para derivativo opcional)
     float output;               // Salida actual del controlador
     
@@ -74,3 +76,15 @@ typedef struct {
     float power_estimate;       // Estimación de potencia (W)
     float efficiency;           // Eficiencia estimada (%)
 } MotorSystemState;
+
+// ---------------------------------------------------------
+// Modo de operación 
+// ---------------------------------------------------------
+typedef enum {// Modo de operación del sistema
+    MODE_IDLE = 0,
+    MODE_TEST_ENCODER,
+    MODE_TEST_PWM,
+    MODE_TEST_PI,
+    MODE_CALIBRATION,
+    MODE_FORWARD
+} SystemMode;

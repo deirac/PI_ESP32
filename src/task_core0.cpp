@@ -1,42 +1,29 @@
-#include <Arduino.h>
 #include "task_core0.h"
 #include "encoder.h"
+#include "pi_controller.h"
 #include "config.h"
-#include "types.h"
 
-// Variable global accesible desde otros módulos
-volatile MotorData motorData;
 
-void taskCore0(void *parameter)
-{
-    unsigned long last_time = micros();
+// -------------------------------------------
+// Variables globales para la tarea del core 0
+// -------------------------------------------
+static TaskHandle_t taskCore0Handle = NULL;
+static PIController pi_controller;
+static float target_rpm = 0.0f;
+static SystemMode current_mode = MODE_IDLE;
+static MotorSystemState motor_state = {0};
+static portMUX_TYPE motor_state_mutex = portMUX_INITIALIZER_UNLOCKED;
+// -------------------------------------------
 
-    while (true)
+
+void taskCore0(void* parameter){
+    Serial.println("[Core 0]: Task Started");
+
+    uint32_t last_update_time = millis();
+
+    while (1)
     {
-        // Tiempo entre lecturas (usamos 1 ms)
-        unsigned long now = micros();
-        float dt = (now - last_time) / 1e6;
-        last_time = now;
-
-        // Leer pulsos y convertir a RPM
-        motorData.rpm = encoder_get_rpm();
-
-        // Puedes añadir filtros si quieres:
-        // motorData.rpm = lowpass(motorData.rpm);
-
-        vTaskDelay(1);  // 1 ms
+       
     }
-}
-
-void startTaskCore0()
-{
-    xTaskCreatePinnedToCore(
-        taskCore0,
-        "TaskCore0",
-        4000,
-        NULL,
-        1,        // baja prioridad
-        NULL,
-        0         // Core 0
-    );
+    
 }
